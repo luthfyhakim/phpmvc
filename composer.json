@@ -1,0 +1,17 @@
+{
+    "name": "luthfy/phpmvc",
+    "description": "Php MVC",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Luthfy\\Phpmvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "luthfyhakim",
+            "email": "luthfyhakim250404@gmail.com"
+        }
+    ],
+    "require": {}
+}
