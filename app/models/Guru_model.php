@@ -1,8 +1,8 @@
 <?php
 
-class Siswa_model
+class Guru_model
 {
-  private $table = 'siswa';
+  private $table = 'komli';
   private $db;
 
   public function __construct()
@@ -10,13 +10,13 @@ class Siswa_model
     $this->db = new Database;
   }
 
-  public function getAllSiswa()
+  public function getGuru()
   {
     $this->db->query('SELECT * FROM ' . $this->table);
     return $this->db->resultSet();
   }
 
-  public function getSiswaById($id)
+  public function getGuruById($id)
   {
     $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
     $this->db->bind('id', $id);
@@ -33,21 +33,22 @@ class Siswa_model
   {
     $getId = $this->getId();
     $id = $getId['id'] + 1;
-    $nis = $data['nis'];
-    $nama = $data['nama'];
-    $jenis_kelamin = $data['jenis_kelamin'];
-    $tinggi = $data['tinggi'];
-    $asal_sekolah = $data['asal_sekolah'];
     $komli = $data['komli'];
-    $nilai_un = $data['nilai_un'];
+    $tgl_berdiri = $data['tgl_berdiri'];
+    $nama_kakomli = $data['nama_kakomli'];
+    $jml_siswa = $data['jml_siswa'];
+    $akreditasi = $data['akreditasi'];
 
-    // $query = "INSERT INTO " . $this->table . " VALUES ('', :nama, :jenis_kelamin, :alamat)";
-    $query = "INSERT INTO " . $this->table . " VALUES ('$id', '$nis', '$nama', '$jenis_kelamin', '$tinggi', '$asal_sekolah', '$komli', '$nilai_un')";
-    
+    // var_dump($data);
+    $query = "INSERT INTO " . $this->table . " VALUES ('$id', '$komli', '$tgl_berdiri', '$nama_kakomli', '$jml_siswa', '$akreditasi')";
+    // var_dump($query);
+
     $this->db->query($query);
-    // $this->db->bind('nama', $data['nama']);
-    // $this->db->bind('jenis_kelamin', $data['jenis_kelamin']);
-    // $this->db->bind('alamat', $data['alamat']);
+    // $this->db->bind('komli', $data['komli']);
+    // $this->db->bind('tgl_berdiri', $data['tgl_berdiri']);
+    // $this->db->bind('nama_kakomli', $data['nama_kakomli']);
+    // $this->db->bind('jml_siswa', $data['jml_siswa']);
+    // $this->db->bind('akreditasi', $data['akreditasi']);
     $this->db->execute();
     
     return $this->db->rowCount();
