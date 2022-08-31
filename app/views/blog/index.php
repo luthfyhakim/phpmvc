@@ -1,5 +1,5 @@
 <body>
-  <div class="continer mt-5">
+  <div class="container mt-5">
     <div class="row">
       <div class="col-6">
         <h3>Blog</h3>
